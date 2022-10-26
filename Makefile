@@ -1,7 +1,4 @@
 .PHONY: test
-test:
-	pytest tests -svv --log-cli-level=DEBUG
-
 install/dev:
 	pip install -e .'[dev]'
 
@@ -46,4 +43,10 @@ clean-test: ## remove test and coverage artifacts
 
 clean-vim: ## remove .sw* files
 	find . -type f -name "*.sw[klmnop]" -delete
+
+test:
+	pytest tests
+
+test/debug:
+	pytest tests -svv --log-cli-level=DEBUG
 
